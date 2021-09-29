@@ -45,23 +45,25 @@ skillsHeader.forEach((el) => {
   el.addEventListener("click", toggleSkills);
 });
 /*==================== QUALIFICATION TABS ====================*/
-const tabs = document.querySelectorAll("[data-target]"),
-  tabContents = document.querySelectorAll("[data-content]");
+var educationButton = document.getElementById("educationButton");
+var workButton = document.getElementById("workButton");
+var workID = document.getElementById("work");
+var educationID = document.getElementById("education");
 
-tabs.forEach((tab) => {
-  tab.addEventListener("click", () => {
-    const target = document.querySelectorAll(tab.dataset.target);
-    tabContents.forEach((tabContent) => {
-      tabContent.classList.remove("qualification__active");
-    });
-    target.classList.add("qualification__active");
-
-    tabs.forEach((tab) => {
-      tab.classList.remove("qualification__active");
-    });
-    tab.classList.add("qualification__active");
+const workClick = () => {
+  workButton.addEventListener("click", () => {
+    workID.classList.add("qualification__active");
+    educationID.classList.remove("qualification__active");
   });
-});
+};
+workClick();
+const educationClick = () => {
+  educationButton.addEventListener("click", () => {
+    educationID.classList.add("qualification__active");
+    workID.classList.remove("qualification__active");
+  });
+};
+educationClick();
 /*==================== SERVICES MODAL ====================*/
 
 /*==================== PORTFOLIO SWIPER  ====================*/
